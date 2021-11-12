@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./inter.css">
+    <link rel="stylesheet" href="./crud.css">
+    <title>CRUD EDWARD</title>
+    <script>
+function buscarSelect()
+{
+  // creamos un variable que hace referencia al select
+  var select=document.getElementById("panel");
+ 
+  // obtenemos el valor a buscar
+  var buscar=document.getElementById("buscar").value;
+ 
+  // recorremos todos los valores del select
+  for(var i=1;i<select.length;i++)
+  {
+    if(select.options[i].text==buscar)
+    {
+      // seleccionamos el valor que coincide
+      select.selectedIndex=i;
+    }
+  }
+}
+</script>
+  </head>
+
+  <body  style="background-color:rgb(135, 206, 250)"> 
+    <div class="w3-container w3-blue">
+      <h1><a style="text-decoration: none;" href="https://cramerpuno.edu.pe/" >CLASS EDWARD    <b>   Colegio CRAMER<img src="1.png" width="50" height="50"> </b></a></h1>      
+    </div> 
+  <center>
+    <form class="w3-container" onsubmit="event.preventDefault()">
+    <input  id="fname" name="fname" placeholder="Titulo Tarea" type="text-decoration" />
+    <br>
+    <input   id="lname" name="lname" placeholder="Descripcion Tarea" />
+    <br>
+    <button class="w3-button w3-round w3-yellow" onclick="clearForm()">Limpiar Formulario</button>
+    <br /><br />
+
+    <button class="w3-button w3-round w3-blue" onclick="create()">Añadir</button>
+    <button class="w3-button w3-round w3-blue" onclick="update()">Editar</button>
+    <button class="w3-button w3-round w3-blue" onclick="deleteItem()">Eliminar</button>
+    <button class="w3-button w3-round w3-blue" onclick="view()" >ver</button>
+
+   
+    <br />  <h3><a style="text-decoration: none;" ><b>tareas presentadas</b></a></h3><br />
+    <form onsubmit="return false"> 
+      <input type="text" id="buscar"><input type="submit" value="buscar" onclick="buscarSelect()"> <br>
+     <select id="panel"  size="10" onclick="panelClick()"> 
+
+     </select>
+    </form>
+      
+
+  </form>
+  </center>
+
+    <script src="crud.js">
+    </script>
+
+  </body>
+</html>
